@@ -77,5 +77,43 @@ public class HelloJSTL {
       *                     属性：
       *                         *item：指定要循环谁，它可以是一个数组或一个集合
       *                         *var：把数组或集合中的每个元素赋值给var指定的变量
+      *
+      *                     循环状态：
+      *                         可以使用varStatus来创建循环状态变量
+      *                         循环状态变量有如下属性：
+      *                             *count：循环元素的个数
+      *                             *index：循环元素的下标
+      *                             *first：是否为第一个元素
+      *                             *last：是否为最后一个元素
+      *                             *current：当前元素
+      *                    <%
+      *                         ArrayList<String> list=new ArrayList<String>();
+      *                         list.add("一");
+      *                         list.add("二");
+      *                         list.add("三");
+      *                         pageContext.setAttribute("list",list);
+      *                    %>
+      *                    <c:forEach items="${list}" var="ele" varStatus="vs">
+      *                        ${vs.index} ${vs.count} ${vs.first} ${vs.last} ${vs.current} <br/>
+      *                    </c:forEach>
+      *
+      *         fmt库
+      *             它是格式化库
+      *                 <fmt:formatDate value="" pattern=""/>
+      *                     value：指定一个Date类型的变量
+      *                     pattern：用来指定输出的模板，例如：yyyy-MM-dd HH:mm:ss
+      *
+      *                 <fmt:formatNumber value="${num1}" pattern="0.00"/>
+      *                     保留小数点后2位，它会四舍五入，如果不足2位，以0补位
+      *                 <fmt:formatNumber value="${num1}" pattern="#.##"/>
+      *                     保留小数点后2位，它会四舍五入，如果不足2位，不补位
+      *
+      *
+      *       自定义标签
+        *       1.步骤
+        *           *标签处理类（标签也是一个对象，那么就需要先有类）
+        *           *tld文件，它是一个xml
+        *           *页面中使用<%@ taglib%>来指定tld文件的位置
+        *       2.标签处理类
     *               */
 }
