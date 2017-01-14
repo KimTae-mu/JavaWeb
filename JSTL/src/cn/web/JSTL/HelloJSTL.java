@@ -115,5 +115,12 @@ public class HelloJSTL {
         *           *tld文件，它是一个xml
         *           *页面中使用<%@ taglib%>来指定tld文件的位置
         *       2.标签处理类
+        *           SimpleTag接口：
+        *               void doTag():每次执行标签时都会调用这个方法；
+        *               JspTag getParent():返回父标签
+        *               void setParent(JspTag):设置父标签
+        *               void setJspBody(JspFragment):设置标签体
+        *               void setJspContext(JspContext):设置jsp上下文对象，它儿子是PageContext
+        *               其中doTage()会在其他三个方法之后被tomcat调用
     *               */
 }
