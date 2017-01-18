@@ -122,5 +122,23 @@ public class HelloJSTL {
         *               void setJspBody(JspFragment):设置标签体
         *               void setJspContext(JspContext):设置jsp上下文对象，它儿子是PageContext
         *               其中doTage()会在其他三个方法之后被tomcat调用
+        *
+        *       3.配置tld文件
+        *       tld文件一般都放到WEB-INF之下，这样保证客户端访问不到！
+        *           <tag>
+                        <name>myTag1</name> 指定当前标签名称
+                        <tag-class>cn.web.tag.MyTag1</tag-class>    指定当前标签的标签处理类
+                        <body-content>empty</body-content>  指定标签体的类型，我们这里使用的是空标签类型
+                    </tag>
+
+                4.页面中指定tld文件位置
+                    <%@ taglib prefix="it" uri="/WEB-INF/tlds/web-1.tld" %>
+                    导标签库，就是为页面指定tld文件的位置！
+
+                标签体内容
+                    empty：无标签体！
+                    JSP：JSP2.0已经不再支持这个类型了，表示标签体内容可以是：java脚本，可以是标签，可以是EL表达式
+                    scriptless：只能是EL表达式，也可以是其他的标签！
+                    tagdependent：标签体内容不会被执行，而是直接赋值标签处理类
     *               */
 }
