@@ -140,5 +140,10 @@ public class HelloJSTL {
                     JSP：JSP2.0已经不再支持这个类型了，表示标签体内容可以是：java脚本，可以是标签，可以是EL表达式
                     scriptless：只能是EL表达式，也可以是其他的标签！
                     tagdependent：标签体内容不会被执行，而是直接赋值标签处理类
+
+                不再执行标签下面内容的标签！
+                   在标签处理类中的doTage()中使用SkipPageException来结束！
+                   tomcat会调用标签处理类的doTage()方法，然后Tomcat会得到SkipPageException， 它会跳过本页面的其他内容
+
     *               */
 }

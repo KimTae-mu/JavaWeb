@@ -12,6 +12,8 @@ public class MyTag3 extends SimpleTagSupport{
     @Override
     public void doTag() throws JspException, IOException {
         Writer out=this.getJspContext().getOut();//获取当前jsp页面的输出流
-        this,getJspBody().invoke(out);//执行标签体内容，
+        out.write("****************<br/>");
+        this.getJspBody().invoke(out);//执行标签体内容，
+        out.write("<br/>****************");
     }
 }
