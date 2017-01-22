@@ -18,8 +18,11 @@
   <%
     request.setAttribute("xxx","zhangsan");
   %>
-  <h3>
-    <it:myTag3>${xxx }</it:myTag3>
-  </h3>
+
+  <it:myTag4 test="${empty param.xxx }">
+    <h3>
+      <it:myTag3>${xxx }</it:myTag3>
+    </h3>
+  </it:myTag4>
   </body>
 </html>

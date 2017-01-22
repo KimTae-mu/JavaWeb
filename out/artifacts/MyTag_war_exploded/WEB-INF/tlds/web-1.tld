@@ -27,4 +27,14 @@
         <tag-class>cn.web.tag.MyTag3</tag-class>
         <body-content>scriptless</body-content>
     </tag>
+    <tag>
+        <name>myTag4</name>
+        <tag-class>cn.web.tag.MyTag4</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>test</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 </taglib>

@@ -93,7 +93,7 @@ public class HelloJSTL {
       *                         list.add("三");
       *                         pageContext.setAttribute("list",list);
       *                    %>
-      *                    <c:forEach items="${list}" var="ele" varStatus="vs">
+      *                    <c:forEach items="${list}" var="ele" varStatus="vs">1
       *                        ${vs.index} ${vs.count} ${vs.first} ${vs.last} ${vs.current} <br/>
       *                    </c:forEach>
       *
@@ -145,5 +145,27 @@ public class HelloJSTL {
                    在标签处理类中的doTage()中使用SkipPageException来结束！
                    tomcat会调用标签处理类的doTage()方法，然后Tomcat会得到SkipPageException， 它会跳过本页面的其他内容
 
+                标签属性
+                    步骤：
+                      1.给你的标签处理类添加属性！
+                        为标签处理类添加属性，属性至少要有一个set方法，这个set方法会在doTag()方法之前被tomcat执行，所在doTag()中就可以使用属性了
+                      2.在tld文件中对属性进行配置
+                        <attribute>
+                            <name>test</name>   指定属性名
+                            <required>true</required>   指定属性是否为必需的
+                            <rtexprvalue>true</rtexprvalue> 指定属性是否可以使用EL
+                        </attribute>
+
+                    MVC
+                        它不是java独有，所有的B/S结构的项目都在使用它
+
+                        M--model 模型(自己写代码)
+                        V--View   视图(jsp)
+                        C--Cotroller 控制器(Servlet)
+
+                    JavaWeb三层框架
+                        Web层 --> 与Web相关的内容(Servlet、JSP、Servlet相关的API：request、response、session、ServletContext)
+                        业务层 --> 业务对象(Service)
+                        数据层 --> 操作数据库(DAO Data Access Object)(所有对数据库的操作不能跳出DAO之外)
     *               */
 }
