@@ -57,7 +57,7 @@ public class UserDao {
             //得到根元素
             Element root=doc.getRootElement();
             //通过根元素创建新元素
-            Element userEle=root.element("user");
+            Element userEle=root.addElement("user");
             //为userEle设置属性
             userEle.addAttribute("username",user.getUsername());
             userEle.addAttribute("password",user.getPassword());

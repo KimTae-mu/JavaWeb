@@ -41,6 +41,51 @@
             3).如果得到UserException，那么把异常信息保存到request域中，转发回regist.jsp
             4).输出“注册成功”
 
+      给注册添加验证码
+        1.VerifyCode类
+          *BufferedImage getImage() --> 获取随机的验证码图片
+          *String getText() --> 获取图片上的文本
+          *static output(BfferedImage,OutputStream) --> 把图片写入到指定的输出流中
+        2.VerifyCodeServlet
+          *获取随机验证码图片
+          *把验证码图片上的文本保存到session中
+          *把图片响应到response的outputStream中
+        3.regist.jsp
+          *添加<img src="指向Servlet"/>
+          *添加一个文本框，用来输入验证码
+          *“看不清，换一张”，是一个超链接，把上面的<img>的src重新再次指向Servlet，为了处理浏览器的缓存，需要使用时间来做参数
+        4.修改RegistServlet
+          *校验验证码
+          *错误：保存表单数据到request域，保存错误信息到request域，转发回regist.jsp
+          *正确：什么都不做，向下执行原来代码
+
+      服务器端表单（输入）校验
+        我们把这段校验，放到获取表单数据之后，验证码校验之前
+        1.使用Map类型来装载错误信息
+          *key：表单项名称，例如：username、password、verifyCode
+          *value：
+            >非空：用户名不能为空，或者密码不能为空
+            >长度：用户名长度必须在3~20之间，密码长度必须在3~20之间
+        2.在校验失败时，向map添加错误信息，哪个字段出错，就给那个字段添加错误信息
+        3.判断map是否为空（长度是否为0），如果不空，说明有错误存在，保存map到request域，保存form到request域（回显），转发回regist.jsp
+        4.在regist.jsp中，显示map中的错误信息，${map.username}
+
+      登陆功能：
+        页面：login.jsp --> 登陆表单！
+        LoginServlet -- >
+          1.获取表单数据，封装到User中，
+          2.调用service的login()方法，传递form过去
+          3.如果service的login()方法，没有抛出异常，返回一个User对象
+          4.有异常：获取异常信息保存到request域，保存form，转发到login.jsp
+          5.没异常：保存返回的User对象到session中，重定向到welcome.jsp（显示当前用户信息）
+        UserService#login()
+          public User login(User form){...}
+            1.使用用户名查询数据库，得到返回的User
+              >返回为null，抛出异常，异常信息为（用户名不存在）
+              >返回不为null，获取查询出来的User的password与form的password进行比较，如果不同：抛出异常（密码错误）
+              >如果相同，返回查询结果
+        UserDao
+          1.通过用户名查询用户（已经存在）
   --%>
   </body>
 </html>

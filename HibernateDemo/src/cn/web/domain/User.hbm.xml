@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!--配置类和表结构的映射-->
+    <class name="cn.web.domain.User" table="user">
+        <!--配置id
+              见到name属性，是JavaBean的属性
+              见到column属性，是表结构的字段-->
+        <id name="id" column="id">
+            <!--主键的生成策略-->
+            <generator class="native"/>
+        </id>
+        <!--配置其他的属性-->
+        <!--<property name="id" column="id"/>-->
+        <property name="name" column="name"/>
+        <property name="age" column="age"/>
+
+    </class>
+</hibernate-mapping>

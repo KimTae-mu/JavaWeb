@@ -3,9 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/HelloWorld/HelloWorld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HibernateDemo/HibernateDemo.iml" filepath="$PROJECT_DIR$/HibernateDemo/HibernateDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HibernateDemo2/HibernateDemo2.iml" filepath="$PROJECT_DIR$/HibernateDemo2/HibernateDemo2.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaWeb.iml" filepath="$PROJECT_DIR$/.idea/JavaWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/LoginRegist/LoginRegist.iml" filepath="$PROJECT_DIR$/LoginRegist/LoginRegist.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyTag/MyTag.iml" filepath="$PROJECT_DIR$/MyTag/MyTag.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SQLTest/SQLTest.iml" filepath="$PROJECT_DIR$/SQLTest/SQLTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StrutsDemo/StrutsDemo.iml" filepath="$PROJECT_DIR$/StrutsDemo/StrutsDemo.iml" />
     </modules>
   </component>
 </project>

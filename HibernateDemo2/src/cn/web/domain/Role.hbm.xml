@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!--配置类和表结构的映射-->
+    <class name="cn.web.domain.Role" table="sys_role">
+        <!--配置id
+              见到name属性，是JavaBean的属性
+              见到column属性，是表结构的字段-->
+        <id name="rid" column="cust_id">
+            <!--主键的生成策略-->
+            <generator class="native"/>
+        </id>
+        <!--配置其他的属性-->
+        <property name="rname" column="rname"/>
+        <set name="users" table="sys_user_role">
+            <key column="rid"/>
+            <many-to-many class="cn.web.domain.User" column="uid"/>
+        </set>
+    </class>
+</hibernate-mapping>

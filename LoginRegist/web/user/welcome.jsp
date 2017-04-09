@@ -9,9 +9,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>登陆成功</title>
 </head>
 <body>
-
+    <h1>欢迎登陆本系统！</h1>
+<c:choose>
+    <c:when test="${empty sessionScope.sessionUser }">gun</c:when>
+    <c:otherwise>
+        ${sessionScope.sessionUser }
+    </c:otherwise>
+</c:choose>
 </body>
 </html>

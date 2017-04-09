@@ -9,13 +9,14 @@ import org.junit.Test;
  */
 /*UserDao的测试类*/
 public class UserDaoTest {
-    /*@Test
+    @Test
     public void testFindByUsername(){
         UserDao userDao=new UserDao();
-    }*/
+        User user = userDao.findByUsername("王五");
+        System.out.println(user);
+    }
 
-    @Test
-    public void testAdd(){
+    public static void main(){
         UserDao userDao=new UserDao();
 
         User user=new User();

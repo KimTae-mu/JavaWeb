@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--编写常量
+    <constant name="struts.action.extension" value="do,,"></constant>
+    -->
+    <!--开启动态方法访问-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+    <!-- 包结构 -->
+    <package name="default" namespace="/" extends="struts-default">
+        <!-- 配置Action -->
+        <action name="hello" class="cn.web.action.HelloAction" method="sayHello">
+            <!-- 配置跳转的页面，路径的写法：在struts2框架中，不管是转发还是重定向，都不用写项目名 -->
+            <result name="ok">/Demo/success.jsp</result>
+        </action>
+        <!--POJO类的方式-->
+        <action name="HelloAction1" class="cn.web.action1.HelloAction1"/>
+        <!--实现Action接口的方式-->
+        <action name="HelloAction2" class="cn.web.action1.HelloAction2">
+            <result name="success">/Demo/success.jsp</result>
+        </action>
+        <!--继承ActionSupport类的方式-->
+        <action name="HelloAction3" class="cn.web.action1.HelloAction3"/>
+    </package>
+    <!--演示Action的访问-->
+    <package name="demo2Action" namespace="/" extends="default">
+        <!--传统方式-->
+        <action name="saveCust" class="cn.web.action2.CustomerAction" method="save"/>
+        <action name="delCust" class="cn.web.action2.CustomerAction" method="delete"/>
+        <!--通配符的方式-->
+        <action name="linkman_*" class="cn.web.action2.LinkmanAction" method="{1}"/>
+        <!--配置动态方法访问-->
+        <action name="user" class="cn.web.action2.UserAction"/>
+    </package>
+</struts>
